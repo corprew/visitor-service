@@ -1,6 +1,8 @@
 # visitor-service
 
-This is a node-based service that is designed to provide a simple visitor tracking facility for websites.  It is used provide the "XXXX visitors in last day" text, it is largely an API-driven service.  It is based on express.
+This is a node-based service that is designed to provide a simple visitor tracking facility for websites.  It is used provide the "XXXX visitors in last day" text, it is largely an API-driven service.  It is based on node/express and redis.
+
+The visitor count lasts for 24 hours.  Subsequent visits in the next 60 minutes to the same entity by the same client doesn't add to the visitor count for a particular page.  Expiration is done on an hour-by-hour basis, the visitor session timing is based on an hour from when the visit first occurred.
 
 ## running
 
