@@ -10,7 +10,7 @@ This will scale pretty far as-is, because it never writes to disk.  Most reasona
 
 You can run this as a node app as per normal.  this is built using express so `npm install` followed by `npm start` will kick it off. 
 
-The easiest way to run this service is with `docker-compose up --build`.  This docker composer file has a built in reference to a redis file.  Pay careful attention to the first few lines of the log to see if you have a kernel issue, this probably won't affect you in development mode on your server, but see https://github.com/docker-library/redis/issues/55 for more details.
+The easiest way to run this service is with `docker-compose up --build`.  This docker composer file has a built in reference to a redis image.  Pay careful attention to the first few lines of the log to see if you have a kernel issue, this probably won't affect you in development mode on your server, but see https://github.com/docker-library/redis/issues/55 for more details.
 
 ## API:
 
