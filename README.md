@@ -4,6 +4,8 @@ This is a node-based service that is designed to provide a simple visitor tracki
 
 The visitor count lasts for 24 hours.  Subsequent visits in the next 60 minutes to the same entity by the same client doesn't add to the visitor count for a particular page.  Expiration is done on an hour-by-hour basis, the visitor session timing is based on an hour from when the visit first occurred.
 
+This will scale pretty far as-is, because it never writes to disk.  Most reasonable scaling issues can be solved by changing the redis config (see `redis-config.js`) or changing how express is configured (or running more express servers, no session fixation issues here.)
+
 ## running
 
 You can run this as a node app as per normal.  this is built using express so `npm install` followed by `npm start` will kick it off. 
@@ -27,6 +29,17 @@ As this exists in this repo, it should only be used in isolation -- this has a s
 ## production considerations
 
 This is designed to take advantage of the LRU key expiry of Redis.  It makes a new set to store client hashes in every hour and just lets the limited memory of the redis server age them out as needed.  There is no reason to have this server use a redis with persistence
+
+## CONTRIBUTING
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, please do not change the version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
 
 ## LICENSE
 
