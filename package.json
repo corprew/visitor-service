@@ -1,0 +1,19 @@
+{
+  "name": "visitor-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "^2.6.9",
+    "express": "~4.16.1",
+    "moment": "^2.24.0",
+    "morgan": "~1.9.1",
+    "redis": "^2.8.0",
+    "sprintf-js": "^1.1.2",
+    "supports-color": "^7.0.0"
+  }
+}

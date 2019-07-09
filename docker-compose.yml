@@ -1,0 +1,25 @@
+redis:
+  image: redis
+  container_name: redis_host
+  expose:
+    - 6379
+app:
+  container_name: http
+  build: ./
+  volumes:
+    - ./:/var/www/app
+  links:
+    - redis
+  ports:
+    - 3000:3000
+  environment:
+    - REDIS_URL=redis://redis_host
+    - NODE_ENV=development
+    - PORT=3000
+  command:
+    sh -c 'npm i && DEBUG=vs:* npm start'
+#
+#  if you want to see debugging information, run this as the command instead:
+#
+#      sh -c 'npm i && DEBUG=vs:* npm start'  
+#
